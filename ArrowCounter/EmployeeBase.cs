@@ -2,7 +2,7 @@
 
 namespace ArrowCounter
 {
-    public abstract class EmployeeBase : IEmployee
+    public abstract class EmployeeBase : IArrows
     {
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
 

@@ -3,19 +3,13 @@ using static ArrowCounter.EmployeeBase;
 
 namespace ArrowCounter
 {
-    public interface IEmployee
+    public interface IArrows
     {
         string Name { get; }
 
         string Surname { get; }
 
-        void AddGrade(float grade);
-
-        void AddGrade(double grade);
-
         void AddGrade(int grade);
-
-        void AddGrade(char grade);
 
         void AddGrade(string grade);
 
