@@ -15,25 +15,6 @@ namespace ArrowCounter
                 return this.Sum / this.Count;
             }
         }
-        public char AverageLetter
-        {
-            get
-            {
-                switch (this.Average)
-                {
-                    case var average when average >= 80:
-                        return 'A';
-                    case var average when average >= 60:
-                        return 'B';
-                    case var average when average >= 40:
-                        return 'C';
-                    case var average when average >= 20:
-                        return 'D';
-                    default:
-                        return 'E';
-                }
-            }
-        }
 
         public Statistics()
         {
@@ -43,12 +24,12 @@ namespace ArrowCounter
             this.Min = float.MaxValue;
         }
 
-        public void AddGrade(float grade)
+        public void AddNumberOfArrows(int arrow)
         {
             this.Count++;
-            this.Sum += grade;
-            this.Min = Math.Min(grade, this.Min);
-            this.Max = Math.Max(grade, this.Max);
+            this.Sum += arrow;
+            this.Min = Math.Min(arrow, this.Min);
+            this.Max = Math.Max(arrow, this.Max);
         }
     }
 }

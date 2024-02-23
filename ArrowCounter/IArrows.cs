@@ -1,5 +1,5 @@
 ﻿using ArrowCounter;
-using static ArrowCounter.EmployeeBase;
+using static ArrowCounter.ArcherBase;
 
 namespace ArrowCounter
 {
@@ -9,11 +9,11 @@ namespace ArrowCounter
 
         string Surname { get; }
 
-        void AddGrade(int grade);
+        void AddNumberOfArrows(int grade);
 
-        void AddGrade(string grade);
+        void AddNumberOfArrows(string grade);
 
-        event GradeAddedDelegate GradeAdded;
+        event DamagesDelegate EquipmentDamage;
 
         Statistics GetStatistics();
     }

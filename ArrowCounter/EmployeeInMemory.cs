@@ -2,92 +2,52 @@
 
 namespace ArrowCounter
 {
-    public class EmployeeInMemory : EmployeeBase
+    public class EmployeeInMemory : ArcherBase
     {
         //najpierw piszemy jaki delegat będzie obsługiwać nasz event, a nastepnie jego nazwę.
-        public override event GradeAddedDelegate GradeAdded;
+        public override event DamagesDelegate EquipmentDamage;
 
-        private List<float> grades = new();
+        private List<int> arrows = new();
 
         public EmployeeInMemory(string name, string surname)
             : base(name, surname)
         {
         }
 
-        public override void AddGrade(float grade)
+        public override void AddNumberOfArrows(int arrow)
         {
-            if (grade >= 0 && grade <= 100)
+            if (arrow >= 0 )
             {
-                this.grades.Add(grade);
+                this.arrows.Add(arrow);
 
-                if (GradeAdded != null)
+                if (EquipmentDamage != null)
                 {
-                    GradeAdded(this, new EventArgs());
+                    EquipmentDamage(this, new EventArgs());
                     //słowo "this" - wskazanie na nas, jako sendera
                 }
             }
             else
             {
-                throw new Exception("Invalid Grade Value");
+                throw new Exception("Invalid Arrows Value");
             }
         }
 
-        public override void AddGrade(double grade)
+        public override void AddNumberOfArrows(string arrow)
         {
-            if (float.TryParse(grade.ToString(), out float result))
+            if (int.TryParse(arrow, out int result))
             {
-                this.AddGrade(result);
+                this.AddNumberOfArrows(result);
             }
-        }
-
-        public override void AddGrade(int grade)
-        {
-            if (float.TryParse(grade.ToString(), out float result))
-            {
-                this.AddGrade(result);
-            }
-        }
-
-        public override void AddGrade(char grade)
-        {
-            switch (grade)
-            {
-                case 'A' or 'a':
-                    this.grades.Add(100);
-                    break;
-                case 'B' or 'b':
-                    this.grades.Add(80);
-                    break;
-                case 'C' or 'c':
-                    this.grades.Add(60);
-                    break;
-                case 'D' or 'd':
-                    this.grades.Add(40);
-                    break;
-                case 'E' or 'e':
-                    this.grades.Add(20);
-                    break;
-                default:
-                    throw new Exception("Wrong Letter");
-            }
-        }
-
-        public override void AddGrade(string grade)
-        {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else throw new Exception("String is not a float.");
+            else throw new Exception("String is not an int.");
         }
 
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
-            foreach (var grade in this.grades)
+            foreach (var arrow in this.arrows)
             {
-                statistics.AddGrade(grade);
+                statistics.AddNumberOfArrows(arrow);
             }
 
             return statistics;

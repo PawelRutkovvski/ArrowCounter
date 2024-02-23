@@ -13,7 +13,7 @@ while (!CloseApp)
     Console.WriteLine("What You Want To Do? (Choose The Number): " +
         "\r\n 1. Add Number Of Arrows To The Memory And To See Your Statistics." +
         "\r\n 2. Add Number Of Arrows To The File And To See Your Statistics." +
-        "\r\n 3. Exit.");
+        "\r\n 3. Exit .");
 
     Console.WriteLine(" = = = = = ");
     var chooseFromMainMenu = Console.ReadLine();
