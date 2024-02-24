@@ -2,14 +2,14 @@
 
 namespace ArrowCounter
 {
-    public class EmployeeInMemory : ArcherBase
+    public class AddArrowsToMemory : ArcherBase
     {
         //najpierw piszemy jaki delegat będzie obsługiwać nasz event, a nastepnie jego nazwę.
         public override event DamagesDelegate EquipmentDamage;
 
         private List<int> arrows = new();
 
-        public EmployeeInMemory(string name, string surname)
+        public AddArrowsToMemory(string name, string surname)
             : base(name, surname)
         {
         }

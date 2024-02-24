@@ -22,10 +22,10 @@ while (!CloseApp)
     switch (chooseFromMainMenu)
     {
         case "1":
-            AddArrowsToMemory();
+            ArrowsToMemory();
             break;
         case "2":
-            AddArrowsToFile();
+            ArrowsToFile();
             break;
         case "3":
             CloseApp = true;
@@ -35,6 +35,16 @@ while (!CloseApp)
             continue;
     }
 }
+
+private static void EnterArrow()
+{
+    while (true)
+    {
+
+    }
+}
+
+
 //var employee = new EmployeeInFile("Paweł", "Rutkowski");
 //employee.GradeAdded += EmployeeGradeAdded;
 
