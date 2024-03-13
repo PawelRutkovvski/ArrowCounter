@@ -2,15 +2,21 @@
 
 namespace ArrowCounter
 {
-    public class AddArrowsToFile : ArcherBase
+    public class AddArrowsToFile : TrainingBase
     {
         private const string fileName = "arrows.txt";
 
-        public override event DamagesDelegate EquipmentDamage;
+        public override event ArrowDamageDelegate ArrowDamage();
 
-        public AddArrowsToFile(string name, string surname)
-            : base(name, surname)
+        private string date;
+
+        private string fullFileName;
+            
+
+        public AddArrowsToFile(string date)
+            : base(date)
         {
+            fullFileName = $"{date} {fileName}";
         }
 
         public override void AddNumberOfArrows(int arrow)
@@ -22,14 +28,14 @@ namespace ArrowCounter
                     writer.WriteLine(arrow);
                 }
 
-                if (EquipmentDamage != null)
+                if (arrow == -1)
                 {
-                    EquipmentDamage(this, new EventArgs());
+                    EventArrowDamage();
                 }
             }
             else
             {
-                throw new Exception("Invalid Grade Value");
+                throw new Exception("Invalid Arrow Value");
             }
         }
 
@@ -39,7 +45,7 @@ namespace ArrowCounter
             {
                 this.AddNumberOfArrows(result);
             }
-            else throw new Exception("String is not an int.");
+            else throw new Exception("Check What You Have Added.");
         }
 
         public override Statistics GetStatistics()
