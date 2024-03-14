@@ -2,28 +2,43 @@
 
 namespace ArrowCounter
 {
-    public class EmployeeInMemory : ArcherBase
+    public class TrainingToMemory : TrainingBase
     {
-        //najpierw piszemy jaki delegat będzie obsługiwać nasz event, a nastepnie jego nazwę.
-        public override event DamagesDelegate EquipmentDamage;
+        public override event ArrowDamageDelegate ArrowDamage;
 
         private List<int> arrows = new();
+        private string date;
 
-        public EmployeeInMemory(string name, string surname)
-            : base(name, surname)
+        private override string Date
         {
+            get
+            {
+                return date;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    date = value;
+                }
+            }
+        }
+
+        public TrainingToMemory(string data) : base(data)
+        {
+            List<int> arrows = new();
         }
 
         public override void AddNumberOfArrows(int arrow)
         {
-            if (arrow >= 0 )
+            if (arrow >= 0)
             {
                 this.arrows.Add(arrow);
 
-                if (EquipmentDamage != null)
+                if (arrow == -1)
                 {
-                    EquipmentDamage(this, new EventArgs());
-                    //słowo "this" - wskazanie na nas, jako sendera
+                    EventArrowDamage();
                 }
             }
             else
@@ -39,6 +54,17 @@ namespace ArrowCounter
                 this.AddNumberOfArrows(result);
             }
             else throw new Exception("String is not an int.");
+        }
+
+        public override void ShowNumberOfArrows()
+        {
+            StringMaker sm = new StringMaker("This is the number of shots: ");
+
+            for (int i = 0; i < arrows.Count; i++)
+            {
+                sm.Add(arrows[i]);
+            }
+            Console.WriteLine($"\n");
         }
 
         public override Statistics GetStatistics()

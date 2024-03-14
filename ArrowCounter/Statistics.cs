@@ -4,25 +4,25 @@ namespace ArrowCounter
 {
     public class Statistics
     {
-        public float Max { get; private set; }
-        public float Min { get; private set; }
-        public float Sum { get; private set; }
-        public int Count { get; private set; }
-        public float Average
-        {
-            get
-            {
-                return this.Sum / this.Count;
-            }
-        }
+        public int Max;
+        public int Min;
+        public int Sum;
+        public int Count;
 
         public Statistics()
         {
             this.Count = 0;
             this.Sum = 0;
-            this.Max = float.MinValue;
-            this.Min = float.MaxValue;
+            this.Max = int.MinValue;
+            this.Min = int.MaxValue;
         }
+        public int Average
+        {
+            get
+            {
+                return Sum / Count;
+            }
+        }   
 
         public void AddNumberOfArrows(int arrow)
         {

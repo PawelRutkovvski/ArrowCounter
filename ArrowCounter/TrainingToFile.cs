@@ -2,13 +2,13 @@
 
 namespace ArrowCounter
 {
-    public class EmployeeInFile : EmployeeBase
+    public class TrainingToFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
 
         public override event GradeAddedDelegate GradeAdded;
 
-        public EmployeeInFile(string name, string surname)
+        public TrainingToFile(string name, string surname)
             : base(name, surname)
         {
         }

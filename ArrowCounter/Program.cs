@@ -22,10 +22,10 @@ while (!CloseApp)
     switch (chooseFromMainMenu)
     {
         case "1":
-            AddArrowsToMemory();
+            TrainingToMemory();
             break;
         case "2":
-            AddArrowsToFile();
+            TrainingToFile();
             break;
         case "3":
             CloseApp = true;
