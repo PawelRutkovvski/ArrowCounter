@@ -35,38 +35,11 @@ while (!CloseApp)
             continue;
     }
 }
-//var employee = new EmployeeInFile("Paweł", "Rutkowski");
-//employee.GradeAdded += EmployeeGradeAdded;
 
-////jeśli odpali się event GradeAdded to uruchomi się dodana do niego metoda.
-//void EmployeeGradeAdded(object sender, EventArgs args)
-//{
-//    Console.WriteLine("Dodano nową ocenę");
-//}
+private static void EnterArrow()
+{
+    while (true)
+    {
 
-//while (true)
-//{
-//    Console.WriteLine("Enter next grade of Your Employee: ");
-//    Console.WriteLine("... or q to see statistics");
-
-//    var input = Console.ReadLine();
-//    if (input == "q")
-//    {
-//        break;
-//    }
-
-//    try
-//    {
-//        employee.AddGrade(input);
-//    }
-//    catch (Exception e)
-//    {
-//        Console.WriteLine($"Exception catched: {e.Message}");
-//    }
-//}
-//var statistics = employee.GetStatistics();
-//Console.WriteLine();
-//Console.WriteLine($"Average: {statistics.Average}");
-//Console.WriteLine($"Min: {statistics.Min}");
-//Console.WriteLine($"Max: {statistics.Max}");
-//Console.WriteLine($"AvgLetter: {statistics.AverageLetter}");
+    }
+}

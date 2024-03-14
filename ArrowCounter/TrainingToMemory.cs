@@ -2,14 +2,23 @@
 
 namespace ArrowCounter
 {
+<<<<<<<< HEAD:ArrowCounter/TrainingToMemory.cs
     public class TrainingToMemory : TrainingBase
+========
+    public class AddArrowsToMemory : ArcherBase
+>>>>>>>> d62dfc5be95302c01a85d54759b2bf5fb312edbf:ArrowCounter/AddArrowsToMemory.cs
     {
         public override event ArrowDamageDelegate ArrowDamage;
 
         private List<int> arrows = new();
         private string date;
 
+<<<<<<<< HEAD:ArrowCounter/TrainingToMemory.cs
         private override string Date
+========
+        public AddArrowsToMemory(string name, string surname)
+            : base(name, surname)
+>>>>>>>> d62dfc5be95302c01a85d54759b2bf5fb312edbf:ArrowCounter/AddArrowsToMemory.cs
         {
             get
             {

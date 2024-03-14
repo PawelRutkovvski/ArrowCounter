@@ -5,15 +5,15 @@ namespace ArrowCounter
 {
     public interface ITraining
     {
-        string Date { get; set; }
+        string Date { get; }
 
         void AddNumberOfArrows(int arrow);
 
         void AddNumberOfArrows(string arrow);
 
-        event ArrowDamageDelegate ArrowDamage;
+        void ShowNumberOfArrows();
 
-        void ShowNumberOfArrow();
+        event ArrowDamageDelegate ArrowDamage;
 
         Statistics GetStatistics();
 
