@@ -7,7 +7,7 @@ namespace ArrowCounter
         public delegate void ArrowDamageDelegate(object sender, EventArgs args);
 
         public abstract event ArrowDamageDelegate ArrowDamage;
-        public override string Date { get; set; }
+        public string Date { get; set; }
 
         public TrainingBase(string date)
         {

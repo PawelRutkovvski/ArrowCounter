@@ -1,42 +1,17 @@
 ﻿using ArrowCounter;
+using System.Text;
 
 namespace ArrowCounter
 {
-<<<<<<<< HEAD:ArrowCounter/TrainingToMemory.cs
     public class TrainingToMemory : TrainingBase
-========
-    public class AddArrowsToMemory : ArcherBase
->>>>>>>> d62dfc5be95302c01a85d54759b2bf5fb312edbf:ArrowCounter/AddArrowsToMemory.cs
     {
         public override event ArrowDamageDelegate ArrowDamage;
 
         private List<int> arrows = new();
         private string date;
 
-<<<<<<<< HEAD:ArrowCounter/TrainingToMemory.cs
-        private override string Date
-========
-        public AddArrowsToMemory(string name, string surname)
-            : base(name, surname)
->>>>>>>> d62dfc5be95302c01a85d54759b2bf5fb312edbf:ArrowCounter/AddArrowsToMemory.cs
-        {
-            get
-            {
-                return date;
-            }
-
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    date = value;
-                }
-            }
-        }
-
         public TrainingToMemory(string data) : base(data)
         {
-            List<int> arrows = new();
         }
 
         public override void AddNumberOfArrows(int arrow)
@@ -62,18 +37,23 @@ namespace ArrowCounter
             {
                 this.AddNumberOfArrows(result);
             }
-            else throw new Exception("String is not an int.");
+            else throw new Exception("Enter NUMBER of arrows");
         }
 
         public override void ShowNumberOfArrows()
         {
-            StringMaker sm = new StringMaker("This is the number of shots: ");
-
-            for (int i = 0; i < arrows.Count; i++)
+            Console.WriteLine("Let's See How Strong I Am: ");
+            if(arrows.Count == 0)
             {
-                sm.Add(arrows[i]);
+                Console.WriteLine("There Was No Training");
             }
-            Console.WriteLine($"\n");
+            else
+            {
+                foreach(var arrow in arrows)
+                {
+                    Console.WriteLine(arrow);
+                }
+            }
         }
 
         public override Statistics GetStatistics()

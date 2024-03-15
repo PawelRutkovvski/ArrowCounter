@@ -2,18 +2,18 @@
 
 namespace ArrowCounter
 {
-    public class AddArrowsToFile : TrainingBase
+    public class TrainingtoFile : TrainingBase
     {
         private const string fileName = "arrows.txt";
 
-        public override event ArrowDamageDelegate ArrowDamage();
+        public override event ArrowDamageDelegate ArrowDamage;
 
         private string date;
 
         private string fullFileName;
             
 
-        public AddArrowsToFile(string date)
+        public TrainingtoFile(string date)
             : base(date)
         {
             fullFileName = $"{date} {fileName}";
@@ -83,6 +83,22 @@ namespace ArrowCounter
                 statistics.AddNumberOfArrows(arrow);
             }
             return statistics;
+        }
+
+        public override void ShowNumberOfArrows()
+        {
+            Console.WriteLine("Let's See How Strong I Am: ");
+            if (arrows.Count == 0)
+            {
+                Console.WriteLine("There Was No Training");
+            }
+            else
+            {
+                foreach (var arrow in arrows)
+                {
+                    Console.WriteLine(arrow);
+                }
+            }
         }
     }
 }
