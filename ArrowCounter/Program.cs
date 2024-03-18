@@ -4,7 +4,7 @@ Console.WriteLine("Welcome To Arrow Collector Program.");
 Console.WriteLine("======================================");
 Console.WriteLine("In this App You can add number of arrows (or any other bullets) " +
     "\r\n ...and then to see Your shooting statistics." +
-    "\r\n Follow The Menu.";
+    "\r\n Follow The Menu.");
 
 bool CloseApp = false;
 

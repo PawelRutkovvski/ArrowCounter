@@ -18,8 +18,6 @@ namespace ArrowCounter
 
         public abstract void AddNumberOfArrows(string arrow);
 
-        public abstract Statistics GetStatistics();
-
         public abstract void ShowNumberOfArrows();
 
         public abstract Statistics GetStatistics();
@@ -44,7 +42,7 @@ namespace ArrowCounter
 
         protected void EventArrowDamage()
         {
-            if( ArrowDamage != null )
+            if (ArrowDamage != null)
             {
                 ArrowDamage(this, new EventArgs());
             }

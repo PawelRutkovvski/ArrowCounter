@@ -64,7 +64,6 @@ namespace ArrowCounter
             {
                 statistics.AddNumberOfArrows(arrow);
             }
-
             return statistics;
         }
     }
