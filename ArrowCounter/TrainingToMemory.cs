@@ -8,11 +8,6 @@ namespace ArrowCounter
         public override event ArrowDamageDelegate ArrowDamage;
 
         private List<int> arrows = new();
-        private string date;
-
-        public TrainingToMemory(string data) : base(data)
-        {
-        }
 
         public override void AddNumberOfArrows(int arrow)
         {

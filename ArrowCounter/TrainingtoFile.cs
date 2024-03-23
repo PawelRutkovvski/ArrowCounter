@@ -1,27 +1,27 @@
 ﻿using ArrowCounter;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace ArrowCounter
 {
     public class TrainingToFile : TrainingBase
     {
-        private const string fileName = "arrows.txt";
+        private const string fileName = "arrowCounter.txt";
 
         public override event ArrowDamageDelegate ArrowDamage;
 
         private string fullFileName;
-            
 
-        public TrainingToFile(string date)
-            : base(date)
+        public TrainingToFile()
         {
-            fullFileName = $"{date} {fileName}";
+            fullFileName = $"{fileName}";
         }
 
         public override void AddNumberOfArrows(int arrow)
         {
             if (arrow >= 0)
             {
-                using (var writer = File.AppendText(fileName))
+                using (var writer = File.AppendText($"{fullFileName}"))
                 {
                     writer.WriteLine(arrow);
                 }
@@ -48,55 +48,38 @@ namespace ArrowCounter
 
         public override void ShowNumberOfArrows()
         {
-            Console.WriteLine("Let's See How Strong I Am: ");
-            if (arrows.Count == 0)
+            StringBuilder toFileBuild = new StringBuilder($"Number arrows I have shot: ");
+
+            using (var reader = File.OpenText($"{fullFileName}"))
             {
-                Console.WriteLine("There Was No Training");
-            }
-            else
-            {
-                foreach (var arrow in arrows)
+                var line = reader.ReadLine();
+                while (line != null)
                 {
-                    Console.WriteLine(arrow);
+                    toFileBuild.Append($"{line}, ");
+                    line = reader.ReadLine();
                 }
             }
+
+            Console.WriteLine($"\n{toFileBuild}");
         }
 
         public override Statistics GetStatistics()
         {
-            var arrowsFromFile = this.ReadGradesFromFile();
-            var result = this.CountStatistics(arrowsFromFile);
-            return result;
-        }
-
-        private List<int> ReadGradesFromFile()
-        {
-            var arrows = new List<int>();
-            if (File.Exists($"{fileName}"))
+            var result = new Statistics();
+            if (File.Exists($"{fullFileName}"))
             {
-                using (var reader = File.OpenText($"{fileName}"))
+                using (var reader = File.OpenText($"{fullFileName}"))
                 {
                     var line = reader.ReadLine();
                     while (line != null)
                     {
                         var number = int.Parse(line);
-                        arrows.Add(number);
+                        result.AddNumberOfArrows(number);
                         line = reader.ReadLine();
                     }
                 }
             }
-            return arrows;
-        }
-
-        private Statistics CountStatistics(List<int> arrows)
-        {
-            var statistics = new Statistics();
-
-            foreach (var arrow in arrows)
-            {
-                statistics.AddNumberOfArrows(arrow);
-            }
-            return statistics;
+            return result;
         }
     }
 }
