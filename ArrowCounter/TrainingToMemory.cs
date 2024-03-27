@@ -10,7 +10,7 @@ namespace ArrowCounter
         private List<int> arrows = new();
         private string date;
 
-        public TrainingToMemory(string data) : base(data)
+        public TrainingToMemory(string date) : base(date)
         {
         }
 
@@ -19,11 +19,10 @@ namespace ArrowCounter
             if (arrow >= 0)
             {
                 this.arrows.Add(arrow);
-
-                if (arrow == -1)
-                {
-                    EventArrowDamage();
-                }
+            }
+            else if (arrow < 0)
+            {
+                EventArrowDamage();
             }
             else
             {
@@ -43,13 +42,13 @@ namespace ArrowCounter
         public override void ShowNumberOfArrows()
         {
             Console.WriteLine("Let's See How Strong I Am: ");
-            if(arrows.Count == 0)
+            if (arrows.Count == 0)
             {
                 Console.WriteLine("There Was No Training");
             }
             else
             {
-                foreach(var arrow in arrows)
+                foreach (var arrow in arrows)
                 {
                     Console.WriteLine(arrow);
                 }

@@ -1,4 +1,5 @@
 ﻿using ArrowCounter;
+using System.Runtime.CompilerServices;
 
 Console.WriteLine("Welcome To Arrow Collector Program.");
 Console.WriteLine("======================================");
@@ -11,8 +12,8 @@ bool CloseApp = false;
 while (!CloseApp)
 {
     Console.WriteLine("What You Want To Do? (Choose The Number): " +
-        "\r\n 1. Add Number Of Arrows To The Memory And To See Your Statistics." +
-        "\r\n 2. Add Number Of Arrows To The File And To See Your Statistics." +
+        "\r\n 1. Add Number Of Arrows To The Memory." +
+        "\r\n 2. Add Number Of Arrows To The File.txt." +
         "\r\n 3. Exit .");
 
     Console.WriteLine(" = = = = = ");
@@ -36,10 +37,23 @@ while (!CloseApp)
     }
 }
 
-private static void EnterArrow()
+static void TheArrowDamage(object sender, EventArgs args)
 {
-    while (true)
-    {
+    Console.WriteLine("You have lost an arrow. Remember to fix it or buy a new one.");
+}
 
-    }
+private static void TrainingToMemory()
+{
+    var inMemory = new TrainingToMemory();
+    inMemory.ArrowDamage += TheArrowDamage;
+    EnterArrow(inMemory);
+    inMemory.ShowStatistics();
+}
+
+private static void TrainingToMemory()
+{
+    var inFile = new TrainingToFile();
+    inFile.ArrowDamage += TheArrowDamage;
+    EnterArrow(inFile);
+    inFile.ShowStatistics();
 }
