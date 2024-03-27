@@ -5,8 +5,6 @@ namespace ArrowCounter
 {
     public interface ITraining
     {
-        string Date { get; }
-
         void AddNumberOfArrows(int arrow);
 
         void AddNumberOfArrows(string arrow);

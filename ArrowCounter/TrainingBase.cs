@@ -7,12 +7,6 @@ namespace ArrowCounter
         public delegate void ArrowDamageDelegate(object sender, EventArgs args);
 
         public abstract event ArrowDamageDelegate ArrowDamage;
-        public string Date { get; set; }
-
-        public TrainingBase(string date)
-        {
-            this.Date = date;
-        }
 
         public abstract void AddNumberOfArrows(int arrow);
 

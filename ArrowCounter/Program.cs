@@ -23,10 +23,10 @@ while (!CloseApp)
     switch (chooseFromMainMenu)
     {
         case "1":
-            TrainingToMemory();
+            AddingArrowsToMemory();
             break;
         case "2":
-            TrainingToFile();
+            AddingArrowsToFile();
             break;
         case "3":
             CloseApp = true;
@@ -37,7 +37,30 @@ while (!CloseApp)
     }
 }
 
-static void TheArrowDamage(object sender, EventArgs args)
+static void EqupiemntDamage(object sender, EventArgs args)
+{
+    var infoInMemory = new TrainingToMemory();
+}
+
+static void AddingArrowsToMemory()
+{
+    var toMemory = new TrainingToMemory();
+    toMemory.ArrowDamage += EqupiemntDamage;
+    AddingArrows(toMemory);
+    toMemory.ShowStatistics();
+}
+
+
+
+static void AddingArrowsToFile()
+{
+    var toFile = new TrainingToFile();
+    toFile.ArrowDamage += EqupiemntDamage;
+    AddingArrows(toFile);
+    toFile.ShowStatistics();
+}
+
+static void AddingArrows(ITraining training)
 {
     Console.WriteLine("You have lost an arrow. Remember to fix it or buy a new one.");
 }
